@@ -12,12 +12,20 @@ def divide(a, b):
         raise ValueError("0으로 나눌 수 없습니다.")
     return a / b
 
+def power(a, b):
+    return a ** b
+
+def modulo(a, b):
+    if b == 0:
+        raise ValueError("0으로 나머지를 구할 수 없습니다.")
+    return a % b
+
 def calculator():
     print("=== 간단한 계산기 ===")
-    print("연산자: + - * /")
+    print("연산자: + - * / ** %")
 
     while True:
-        expr = input("\n계산식을 입력하세요 (예: 3 + 5) 또는 'q'로 종료: ").strip()
+        expr = input("\n계산식을 입력하세요 (예: 3 + 5, 2 ** 8) 또는 'q'로 종료: ").strip()
         if expr.lower() == 'q':
             print("종료합니다.")
             break
@@ -34,6 +42,10 @@ def calculator():
                 result = multiply(a, b)
             elif op == '/':
                 result = divide(a, b)
+            elif op == '**':
+                result = power(a, b)
+            elif op == '%':
+                result = modulo(a, b)
             else:
                 print("지원하지 않는 연산자입니다.")
                 continue
